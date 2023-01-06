@@ -33,3 +33,11 @@ class Blockchain:
                 return False
 
         return True
+    
+    def proof_of_work(self,block, difficulty=2):
+        proof = block.generate_hash()
+        while proof[:difficulty] != '0'*difficulty:
+            block.nonce += 1
+            proof = block.generate_hash()
+        block.nonce = 0
+        return proof
