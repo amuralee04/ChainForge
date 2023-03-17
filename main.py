@@ -1,14 +1,29 @@
 from blockchain import Blockchain
 
-block_one_transactions = {"sender":"Alice", "receiver": "Bob", "amount":"50"}
-block_two_transactions = {"sender": "Bob", "receiver":"Cole", "amount":"25"}
-block_three_transactions = {"sender":"Alice", "receiver":"Cole", "amount":"35"}
-fake_transactions = {"sender": "Bob", "receiver":"Cole, Alice", "amount":"25"}
+print("Welcome to the Ultimate Mini Blockchain Simulator!")
 
 local_blockchain = Blockchain()
-local_blockchain.print_blocks()
 
-local_blockchain.add_block(block_one_transactions)
-local_blockchain.add_block(block_two_transactions)
-local_blockchain.add_block(block_three_transactions)
-local_blockchain.print_blocks()
+while True:
+
+    str = input("Would you like to append a new block? Y or N: ")
+
+    if str == "Y":
+        sender = input("Who is the sender?: ")
+        reciever = input("Who is the receiver?: ")
+        amount = input("How much money was transferred in the transaction?: ")
+
+        block_to_be_added = {"sender": sender, "reciever": reciever, "amount": amount}
+
+        local_blockchain.add_block(block_to_be_added)
+
+    elif str == "N":
+        print("Here is your entire blockchain! \n ")
+
+        local_blockchain.print_blocks()
+
+        break
+
+    else:
+        print("Please enter Y or N")
+

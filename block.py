@@ -14,6 +14,7 @@ class Block:
         print('Timestamp:', self.timestamp)
         print('Transactions:', self.transaction)
         print('Current Hash:', self.hash)
+        print("\n")
 
     def generate_hash(self):
         block_contents = str(self.timestamp) + str(self.transaction) + str(self.previous_hash) + str(self.nonce)
